@@ -1,4 +1,6 @@
 import { fetchRooms, updateRoomStatus } from "../../database/roomsDB.js";
+import { renderTenantSection } from "../tenants/tenantFeature.js";
+import { renderBillingSection } from "../billing/billingFeature.js";
 
 // Modal DOM Elements
 let modalOverlay;
@@ -41,6 +43,12 @@ function openRoomModal(room) {
     modalRoomTitle.textContent = `Room ${room.room_number} Details`;
     modalRoomIdInput.value = room.id;
     roomStatusSelect.value = room.status;
+
+    // Call the tenant module to handle the lower section of the modal
+    renderTenantSection(room.id, room.status);
+
+    // Call the billing module to handle utility meters and payments (Step 4.3)
+    renderBillingSection(room);
 
     modalOverlay.classList.remove("hidden");
 }

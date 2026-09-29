@@ -129,7 +129,11 @@ body {
     width: 90%;
     max-width: 500px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+
+    /* prevent modal out of display */
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-header {
@@ -138,6 +142,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    /* prevent header shrink while scroll */
+    flex-shrink: 0;
 }
 
 .close-btn {
@@ -150,6 +157,9 @@ body {
 
 .modal-body {
     padding: 1.5rem;
+
+    /* scroll bar with content area only */
+    overflow-y: auto;
 }
 
 /* --- Form Styles --- */
