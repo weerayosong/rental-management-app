@@ -1,4 +1,4 @@
-import { renderRoomGrid } from "./features/rooms/roomFeature.js";
+import { renderRoomGrid, initRoomModal } from "./features/rooms/roomFeature.js";
 
 /**
  * Application Entry Point
@@ -6,6 +6,9 @@ import { renderRoomGrid } from "./features/rooms/roomFeature.js";
  */
 document.addEventListener("DOMContentLoaded", () => {
     console.log("App successfully loaded. Initializing visual room grid...");
+
+    // Initialize Modal Events
+    initRoomModal();
 
     // Execute the Phase 3 core feature
     renderRoomGrid();

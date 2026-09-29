@@ -23,3 +23,30 @@ export async function fetchRooms() {
         return [];
     }
 }
+
+/**
+ * Updates the status of a specific room.
+ * @param {string} roomId - The UUID of the room
+ * @param {string} newStatus - The new status to set
+ * @returns {Promise<boolean>} True if successful, false otherwise
+ */
+export async function updateRoomStatus(roomId, newStatus) {
+    try {
+        const { error } = await supabase
+            .from("rooms")
+            .update({ status: newStatus })
+            .eq("id", roomId);
+
+        if (error) {
+            throw error;
+        }
+
+        return true;
+    } catch (error) {
+        console.error(
+            "Database Error - Failed to update room status:",
+            error.message,
+        );
+        return false;
+    }
+}
