@@ -1,6 +1,7 @@
 import { fetchRooms, updateRoomStatus } from "../../database/roomsDB.js";
 import { renderTenantSection } from "../tenants/tenantFeature.js";
 import { renderBillingSection } from "../billing/billingFeature.js";
+import { renderMaintenanceSection } from "../maintenance/maintenanceFeature.js";
 
 // Modal DOM Elements
 let modalOverlay;
@@ -49,6 +50,9 @@ function openRoomModal(room) {
 
     // Call the billing module to handle utility meters and payments (Step 4.3)
     renderBillingSection(room);
+
+    // Call the maintenance module to handle repair tickets (Step 4.4)
+    renderMaintenanceSection(room);
 
     modalOverlay.classList.remove("hidden");
 }
