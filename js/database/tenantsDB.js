@@ -12,7 +12,7 @@ export async function getActiveTenant(roomId) {
             .select("*")
             .eq("room_id", roomId)
             .eq("is_active", true)
-            .single(); // We expect only one active tenant per room
+            .maybeSingle(); // We expect only one active tenant per room
 
         // PGRST116 means no rows returned, which is normal for a vacant room
         if (error && error.code !== "PGRST116") throw error;
