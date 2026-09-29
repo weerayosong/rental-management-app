@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rental Management Dashboard</title>
+
+        <!-- Import global typography: Inter (English/Numbers) and Noto Sans Thai -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Import Font Awesome for UI icons -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+
+        <!-- Link modular CSS files -->
+        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./css/grid.css" />
+    </head>
+    <body>
+        <!-- Main Application Shell -->
+        <div class="app-container">
+            <!-- Header Section -->
+            <header class="app-header">
+                <div class="header-brand">
+                    <i class="fa-solid fa-building"></i>
+                    <h1>Property Dashboard</h1>
+                </div>
+                <div class="header-actions">
+                    <span class="admin-badge"
+                        ><i class="fa-solid fa-user-shield"></i> Admin</span
+                    >
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <main class="app-content">
+                <section class="dashboard-controls">
+                    <h2>Visual Room Layout</h2>
+                    <div class="status-legend">
+                        <span class="legend-item"
+                            ><span class="color-dot vacant"></span> Vacant</span
+                        >
+                        <span class="legend-item"
+                            ><span class="color-dot occupied"></span>
+                            Occupied</span
+                        >
+                        <span class="legend-item"
+                            ><span class="color-dot overdue"></span>
+                            Overdue</span
+                        >
+                        <span class="legend-item"
+                            ><span class="color-dot maintenance"></span>
+                            Maintenance</span
+                        >
+                    </div>
+                </section>
+
+                <!-- 
+                This container will be dynamically populated with room blocks 
+                by the JavaScript module (roomFeature.js) 
+            -->
+                <div id="room-grid-container" class="room-grid">
+                    <!-- Room items will be injected here -->
+                </div>
+            </main>
+        </div>
+
+        <!-- Entry point for application logic -->
+        <script type="module" src="./js/app.js"></script>
+    </body>
+</html>
